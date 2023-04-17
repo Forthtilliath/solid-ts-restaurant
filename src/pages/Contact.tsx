@@ -1,3 +1,5 @@
+import { Section } from "../components";
+
 export function Contact() {
-    return <div class="min-h-screen bg-teal-300">Contact</div>
+  return <Section class="bg-teal-300">Contact</Section>;
 }

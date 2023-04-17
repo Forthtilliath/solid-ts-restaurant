@@ -1,3 +1,5 @@
+import { Section } from "../components";
+
 export function Where() {
-    return <div class="min-h-screen bg-green-300">Where</div>
+  return <Section class="bg-purple-300">Where</Section>;
 }

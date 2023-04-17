@@ -2,12 +2,12 @@ import { JSX } from "solid-js/jsx-runtime";
 
 type Props = {
   children: JSX.Element;
-  classes: string;
+  class: string;
 };
 
-export function Hero(props: Props) {
+export function Section(props: Props) {
   return (
-    <div class="min-h-screen grid place-content-center" classList={{ [props.classes]: true }}>
+    <div class="min-h-screen grid place-content-center" classList={{ [props.class]: true }}>
       {props.children}
     </div>
   );

@@ -1,3 +1,6 @@
+
+import { Section } from "../components";
+
 export function Menu() {
-    return <div class="min-h-screen bg-purple-300">Menu</div>
+  return <Section class="bg-green-300">Menu</Section>;
 }
