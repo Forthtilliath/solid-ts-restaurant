@@ -1,4 +1,4 @@
-import { Section } from "../components";
+import { Section } from "../parts";
 import video from "../assets/hero.mp4";
 import { createTimeBetween } from "../utils/hooks/createTimeBetween";
 import { Show } from "solid-js";

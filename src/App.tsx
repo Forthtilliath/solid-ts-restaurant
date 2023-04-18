@@ -1,4 +1,4 @@
-import { Footer, Header } from "./components";
+import { Footer, Header } from "./parts";
 import { About, Contact, Gallery, Hero, Menu, Where } from "./pages";
 
 export default function App() {
