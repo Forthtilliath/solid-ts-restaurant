@@ -22,7 +22,7 @@ export function Hero() {
         />
       </div>
       <div class="absolute w-full h-screen flex justify-center items-center flex-col">
-        <div class="bg-black/50 p-3 rounded-lg text-yellow-300 font-courgette">
+        <div class="bg-black/50 p-3 rounded-lg text-yellow-300 font-courgette shadow-hero shadow-yellow-300">
           <h1 class="text-8xl">L'Oriflamme</h1>
           <h3 class="text-6xl">Bienvenue chez l'Oriflamme</h3>
           <Show when={isOpen()}>
