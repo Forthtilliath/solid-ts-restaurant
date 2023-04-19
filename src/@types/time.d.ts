@@ -1,4 +1,4 @@
-declare global {
+// declare global {
   type ZeroBefore<N extends number> = N extends
     | 0
     | 1
@@ -29,6 +29,6 @@ declare global {
   type Range60 = IntRange<0, 60>;
 
   type Time = `${Range24}:${Range60}:${Range60}`;
-}
+// }
 
-export {};
+// export {};

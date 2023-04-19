@@ -4,13 +4,14 @@ import { createTimeBetween } from "../utils/hooks/createTimeBetween";
 import { Show } from "solid-js";
 import { formatSecondsToFullTime } from "../utils/methods/date";
 
-export function Hero() {
+export function Hero(props: {ref:HTMLDivElement}) {
   const [isOpen, openIn] = createTimeBetween("10:30:00", "21:00:00");
 
   return (
     <Section
       class="relative h-screen flex flex-col items-center justify-center text-center text-white py-0 px-3"
       id="hero"
+      ref={props.ref}
     >
       <div class="video-docker absolute top-0 left-0 w-full h-full overflow-hidden">
         <video

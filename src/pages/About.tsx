@@ -1,8 +1,8 @@
 import { Section } from "../parts";
 
-export function About() {
+export function About(props: { ref: HTMLDivElement }) {
   return (
-    <Section class="bg-[#0e0b0d]" id="about">
+    <Section class="bg-[#0e0b0d]" id="about" ref={props.ref}>
       {/* <Section class="bg-blue-300" id="about"> */}
 
       <div class="absolute w-full h-screen flex justify-center items-center flex-col">
