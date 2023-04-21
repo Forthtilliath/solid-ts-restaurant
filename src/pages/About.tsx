@@ -1,6 +1,11 @@
+import { Accessor, createEffect } from "solid-js";
 import { Section } from "../parts";
 
-export function About(props: { ref: HTMLDivElement }) {
+export function About(props: {
+  visible: Accessor<boolean>;
+  ref: HTMLDivElement;
+}) {
+  createEffect(() => console.log("About", props.visible()));
   return (
     <Section class="bg-[#0e0b0d]" id="about" ref={props.ref}>
       {/* <Section class="bg-blue-300" id="about"> */}

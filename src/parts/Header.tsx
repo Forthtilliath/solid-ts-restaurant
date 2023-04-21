@@ -1,12 +1,30 @@
-import { createSignal } from "solid-js";
+import { Accessor, createEffect, createSignal } from "solid-js";
 import logo from "../assets/logo.webp";
 import { createScrollDirection } from "../utils/hooks/createScrollDirection";
 import { createMediaQuery } from "../utils/hooks/createMediaQuery";
 
-export function Header() {
+const INDEX_MENU = {
+  Home: 0,
+  About: 1,
+  Gallery: 2,
+  Menu: 3,
+  Where: 4,
+  Contact: 5,
+};
+
+type Props = {
+  // currentSectionId: Accessor<number | undefined>;
+  currentSectionId: Accessor<string | undefined>;
+};
+
+export function Header(props: Props) {
   const [, goingDown] = createScrollDirection();
   const [menuOpen, setMenuOpen] = createSignal(false);
   // const isMobile = createMediaQuery("(max-width: 768px)");
+
+  createEffect(() => {
+    console.log("Section active", props.currentSectionId());
+  });
 
   return (
     <div
@@ -50,19 +68,22 @@ export function Header() {
           "max-md:opacity-0 max-md:-translate-y-[200%]": !menuOpen(),
         }}
       >
-        <li>
+        <li classList={{ active: props.currentSectionId() === "hero" }}>
+          <a href="#hero">Accueil</a>
+        </li>
+        <li classList={{ active: props.currentSectionId() === "about" }}>
           <a href="#about">A propos</a>
         </li>
-        <li>
+        <li classList={{ active: props.currentSectionId() === "gallery" }}>
           <a href="#gallery">Galerie</a>
         </li>
-        <li>
+        <li classList={{ active: props.currentSectionId() === "menu" }}>
           <a href="#menu">Menu</a>
         </li>
-        <li>
+        <li classList={{ active: props.currentSectionId() === "where" }}>
           <a href="#where">Où nous trouver ?</a>
         </li>
-        <li>
+        <li classList={{ active: props.currentSectionId() === "contact" }}>
           <a href="#contact">Contact</a>
         </li>
       </menu>

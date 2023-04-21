@@ -1,65 +1,53 @@
 import { Footer, Header } from "./parts";
 import { About, Contact, Gallery, Hero, Menu, Where } from "./pages";
-import { createSignal, onCleanup, onMount } from "solid-js";
+import {
+  Accessor,
+  createEffect,
+  createSignal,
+  onCleanup,
+  onMount,
+} from "solid-js";
 import { createScrollDirection } from "./utils/hooks/createScrollDirection";
+import { createVisibilityObserver } from "@solid-primitives/intersection-observer";
 
 export default function App() {
+  const [visible, setVisible] = createSignal<Accessor<boolean>[]>([]);
+  const [currentSectionId, setCurrentSectionId] = createSignal<string>("hero");
+  const useVisibilityObserver = createVisibilityObserver(
+    { threshold: 0.5 },
+    (entry) => {
+      console.log("entry", entry.target.id, entry.intersectionRatio);
+      if (entry.isIntersecting) {
+        setCurrentSectionId(entry.target.id);
+      }
+      return entry.isIntersecting;
+    }
+  );
   let sectionsRef: HTMLDivElement[] = [];
-  const [currentSection, setCurrentSection] = createSignal("");
-  const [scrollDirection] = createScrollDirection();
 
+  // Met en place l'observeur pour chaque section
   onMount(() => {
-    const options: IntersectionObserverInit = {
-      rootMargin: "0px",
-      threshold: 0.3,
-    };
-
-    /**
-     * si entry.intersectionRatio > .3
-     */
-
-    const onIntersect = (
-      entries: IntersectionObserverEntry[],
-      observer: IntersectionObserver
-    ) => {
-      console.log("========");
-      entries.forEach((entry) => {
-        console.log(
-          entry.target.getAttribute("id"),
-          entry.isIntersecting,
-          entry.intersectionRatio
-        );
-      });
-      const a = entries.filter((entry) => entry.intersectionRatio > 0.3);
-      console.log(a);
-    };
-
-    const observer = new IntersectionObserver(onIntersect, options);
-
-    sectionsRef.forEach((section) => {
-      observer.observe(section);
-    });
-
-    onCleanup(() => {
-      sectionsRef.forEach((section) => {
-        observer.unobserve(section);
-      });
-    });
+    setVisible(sectionsRef.map(useVisibilityObserver));
   });
+
+  // const currentSectionId = () =>
+  //   visible()
+  //     .map((v, i) => (v() ? i : -1))
+  //     .filter((n) => ~n)
+  //     .at(0);
+
+  createEffect(() => {
+    console.log(visible().map((v, i) => (v() ? i : -1)));
+  });
+  // createEffect(() => visible().map((v) => console.log(v())));
 
   return (
     <div class="w-full flex flex-col">
-      <Header />
+      <Header currentSectionId={currentSectionId} />
 
       {[Hero, About, Gallery, Menu, Where, Contact].map((Section, i) => (
-        <Section ref={sectionsRef![i]} />
+        <Section ref={sectionsRef![i]} visible={visible()[i]} />
       ))}
-      {/* <Hero />
-      <About />
-      <Gallery />
-      <Menu />
-      <Where />
-      <Contact /> */}
 
       <Footer />
     </div>

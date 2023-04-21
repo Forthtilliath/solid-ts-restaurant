@@ -1,6 +1,9 @@
 lockfileVersion: '6.0'
 
 dependencies:
+  '@solid-primitives/intersection-observer':
+    specifier: ^2.0.11
+    version: 2.0.11(solid-js@1.7.3)
   solid-js:
     specifier: ^1.7.3
     version: 1.7.3
@@ -620,6 +623,23 @@ packages:
       '@nodelib/fs.scandir': 2.1.5
       fastq: 1.15.0
     dev: true
+
+  /@solid-primitives/intersection-observer@2.0.11(solid-js@1.7.3):
+    resolution: {integrity: sha512-GVJDooefKNUl482R6bnoYRlULeyVzGcLCVcGu3qCvvFoqa7YL5uXp/04pGN8CIPiwXnLnQBjfVXOV7+Affe9fw==}
+    peerDependencies:
+      solid-js: ^1.6.12
+    dependencies:
+      '@solid-primitives/utils': 6.1.0(solid-js@1.7.3)
+      solid-js: 1.7.3
+    dev: false
+
+  /@solid-primitives/utils@6.1.0(solid-js@1.7.3):
+    resolution: {integrity: sha512-uTikKFrq33UO+MnKt2WzZr9WYbQe5YX58ytGkL+29DL6o0pZs1wrICbd4ymzSm8azqzMcQqEQOL3HLWjuv9tLw==}
+    peerDependencies:
+      solid-js: ^1.6.12
+    dependencies:
+      solid-js: 1.7.3
+    dev: false
 
   /@types/babel__core@7.20.0:
     resolution: {integrity: sha512-+n8dL/9GWblDO0iU6eZAwEIJVr5DWigtle+Q6HLOrh/pdbXOhOtqzq8VPPE2zvNJzSKY4vH/z3iT3tn0A3ypiQ==}
