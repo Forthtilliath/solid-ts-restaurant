@@ -1,15 +1,15 @@
 import { Section } from "../parts";
 import video from "../assets/hero.mp4";
 import { createTimeBetween } from "../utils/hooks/createTimeBetween";
-import { Accessor, Show, createEffect } from "solid-js";
+import { Show } from "solid-js";
 import { formatSecondsToFullTime } from "../utils/methods/date";
 
-export function Hero(props: {
-  visible: Accessor<boolean>;
+type Props = {
   ref: HTMLDivElement;
-}) {
+};
+
+export function Hero(props: Props) {
   const [isOpen, openIn] = createTimeBetween("10:30:00", "21:00:00");
-  createEffect(() => console.log("Hero", props.visible()));
 
   return (
     <Section
@@ -27,11 +27,13 @@ export function Hero(props: {
         />
       </div>
       <div class="absolute w-full h-screen flex justify-center items-center flex-col">
-        <div class="bg-black/50 p-3 rounded-lg text-yellow-300 font-courgette shadow-hero shadow-yellow-300">
-          <h1 class="text-8xl">L'Oriflamme</h1>
-          <h3 class="text-6xl">Bienvenue chez l'Oriflamme</h3>
+        <div class="bg-black/50 p-3 rounded-lg font-courgette shadow-hero shadow-yellow-300">
+          <h1 class="text-6xl text-yellow-300">Bienvenue chez l'Oriflamme</h1>
+          <h3 class="text-4xl text-yellow-400">Rôtisserie Sandwichs Maison</h3>
           <Show when={isOpen()}>
-            <p class="text-2xl">Nous sommes ouvert jusqu'à 21h !</p>
+            <p class="text-2xl text-yellow-500">
+              Nous sommes ouvert jusqu'à 21h !
+            </p>
           </Show>
           <Show when={isOpen() === false}>
             <p class="text-2xl">

@@ -4,7 +4,7 @@ type Props = {
   children: JSX.Element;
   class: string;
   id?: string;
-  ref?:HTMLDivElement
+  ref?: HTMLDivElement;
 };
 
 export function Section(props: Props) {

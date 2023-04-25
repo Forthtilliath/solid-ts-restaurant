@@ -1,6 +1,10 @@
 import { Section } from "../parts";
 
-export function Menu(props: { ref: HTMLDivElement }) {
+type Props = {
+  ref: HTMLDivElement;
+};
+
+export function Menu(props: Props) {
   return (
     <Section class="bg-green-300" id="menu" ref={props.ref}>
       Menu
