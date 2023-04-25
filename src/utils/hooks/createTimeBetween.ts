@@ -15,7 +15,11 @@ export function createTimeBetween(start: Time, end: Time) {
     const endDate = new Date(currentDate.getTime());
     endDate.setHours(eHours, eMinutes, eSeconds);
 
-    setIsBetween(startDate < currentDate && endDate > currentDate);
+    setIsBetween(startDate <= currentDate && endDate >= currentDate);
+    
+    if (currentDate > startDate) {
+      startDate.setDate(startDate.getDate() + 1);
+    }
     setDiffWithStart((startDate.getTime() - currentDate.getTime()) / 1000);
   };
 
