@@ -1,6 +1,6 @@
 import { Accessor, Show, createEffect, createSignal } from "solid-js";
 import logo from "../assets/logo.webp";
-import { createScrollDirection } from "../utils/hooks/createScrollDirection";
+// import { createScrollDirection } from "../utils/hooks/createScrollDirection";
 import { createMediaQuery } from "../utils/hooks/createMediaQuery";
 import { Nav, NavMobile } from "../components/navigation";
 
@@ -9,7 +9,7 @@ type Props = {
 };
 
 export function Header(props: Props) {
-  const [, goingDown] = createScrollDirection();
+  // const [, goingDown] = createScrollDirection();
   const [menuOpen, setMenuOpen] = createSignal(false);
   const isMobile = createMediaQuery("(max-width: 768px)");
 
