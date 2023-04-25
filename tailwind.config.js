@@ -1,4 +1,5 @@
 const plugin = require("tailwindcss/plugin");
+const colors = require("tailwindcss/colors");
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -14,6 +15,16 @@ module.exports = {
     },
     fontFamily: {
       courgette: ["Courgette", "cursive"],
+    },
+    colors: {
+      ...colors,
+      ori: {
+        black: "#0e0b0d",
+        green: {
+          DEFAULT: "hsl(163,100%,15%)",
+          light: "hsl(163,100%,25%)",
+        },
+      },
     },
   },
   plugins: [

@@ -6,14 +6,11 @@ type Props = {
 
 export function About(props: Props) {
   return (
-    // <Section class="bg-[#0e0b0d]" id="about" ref={props.ref}>
     <Section
-      class="bg-gradient-radial from-cyan-500 to-[#0e0b0d] to-60%"
+      class="bg-gradient-radial from-ori-green to-ori-black to-60%"
       id="about"
       ref={props.ref}
     >
-      {/* <Section class="bg-blue-300" id="about"> */}
-
       <div class="absolute w-full h-screen flex justify-center items-center flex-col">
         <div class="max-w-4xl m-2">
           <h2 class="h2">Rôtisserie Sandwichs Maison</h2>

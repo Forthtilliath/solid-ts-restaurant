@@ -13,6 +13,7 @@ export function NavItem(props: Props) {
 
   return (
     <li
+      class="hover:text-yellow-300"
       classList={{
         "text-yellow-300 font-bold": active(),
       }}
