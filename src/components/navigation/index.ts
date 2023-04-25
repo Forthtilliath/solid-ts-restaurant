@@ -1,5 +1,4 @@
-export * from './Nav';
-export * from './NavMobile';
+export * from './Navigation';
 
 export * from './NavItems';
 

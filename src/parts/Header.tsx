@@ -2,7 +2,7 @@ import { Accessor, Show, createEffect, createSignal } from "solid-js";
 import logo from "../assets/logo.webp";
 // import { createScrollDirection } from "../utils/hooks/createScrollDirection";
 import { createMediaQuery } from "../utils/hooks/createMediaQuery";
-import { Nav, NavMobile } from "../components/navigation";
+import { Navigation } from "../components/navigation";
 
 type Props = {
   currentSectionId: Accessor<string | undefined>;
@@ -19,7 +19,7 @@ export function Header(props: Props) {
 
   return (
     <div
-      class="h-14 fixed w-full z-10 bg-black bg-opacity-50 text-white flex items-center px-4 md:transition-transform justify-between shadow shadow-yellow-400"
+      class="h-14 fixed w-full z-10 bg-black bg-opacity-70 text-white flex items-center px-4 md:transition-transform justify-between shadow shadow-yellow-400"
       // classList={{ "-translate-y-full": goingDown() }}
     >
       <div>
@@ -56,9 +56,9 @@ export function Header(props: Props) {
       {/* Menus séparés pour palier à l'animation de fermeture lors d'un resize */}
       <Show
         when={isMobile()}
-        fallback={<Nav current={props.currentSectionId} />}
+        fallback={<Navigation current={props.currentSectionId} />}
       >
-        <NavMobile
+        <Navigation
           current={props.currentSectionId}
           open={menuOpen}
           close={() => setMenuOpen(false)}

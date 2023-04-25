@@ -12,7 +12,7 @@ export const shortFormatter = new Intl.ListFormat("fr", {
  * @returns a formatted string that displays the time in hours, minutes, and seconds. The format is
  * based on the input parameter `secs`, which is the total number of seconds to be displayed. The
  * string includes the number of hours, minutes, and seconds, with each value separated by a space and
- * followed by the corresponding unit of time (i.e. "heures", "minutes",
+ * followed by the corresponding unit of time (i.e. "heures", "minutes")
  */
 export function formatSecondsToFullTime(secs: number) {
   const details = ["heures", "minutes", "secondes"];
