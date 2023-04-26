@@ -13,7 +13,7 @@ export function Gallery(props: Props) {
 
   return (
     <section
-      class="bg-ori-black min-h-screen relative overflow-hidden "
+      class="min-h-screen bg-ori-black relative overflow-hidden"
       id="gallery"
       ref={props.ref}
     >
