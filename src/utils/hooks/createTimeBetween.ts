@@ -23,7 +23,7 @@ export function createTimeBetween(start: Time, end: Time) {
     setDiffWithStart((startDate.getTime() - currentDate.getTime()) / 1000);
   };
 
-  let si = setInterval(() => check(), 1000);
+  let si = setInterval(check, 1000);
 
   onCleanup(() => clearInterval(si));
 

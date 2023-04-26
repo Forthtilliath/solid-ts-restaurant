@@ -19,7 +19,6 @@ export function NavItem(props: Props) {
       }}
     >
       <a
-        class="relative"
         classList={{
           "md:flame-under max-md:flame-around": active(),
         }}

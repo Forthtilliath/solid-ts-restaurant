@@ -10,3 +10,14 @@
   box-sizing: border-box;
 }
 
+/* @layer components {
+  .text-h2 {
+    font-size: clamp(1rem, 20vw, 2.25rem);
+    line-height: clamp(1rem, 20vw, 2.25rem);
+  }
+} */
+
+section {
+  outline: 4px solid red;
+  padding-block: 2rem;
+}

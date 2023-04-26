@@ -18,8 +18,8 @@ export function Header(props: Props) {
   });
 
   return (
-    <div
-      class="h-14 fixed w-full z-10 bg-black bg-opacity-70 text-white flex items-center px-4 md:transition-transform justify-between shadow shadow-yellow-400"
+    <header
+      class="h-14 fixed w-full z-50 bg-black bg-opacity-70 text-white flex items-center px-4 md:transition-transform justify-between shadow shadow-yellow-400"
       // classList={{ "-translate-y-full": goingDown() }}
     >
       <div>
@@ -64,6 +64,6 @@ export function Header(props: Props) {
           close={() => setMenuOpen(false)}
         />
       </Show>
-    </div>
+    </header>
   );
 }
