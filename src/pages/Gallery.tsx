@@ -17,12 +17,12 @@ export function Gallery(props: Props) {
       id="gallery"
       ref={props.ref}
     >
-      <div class="flex pt-16 pb-4 px-4">
+      <div class="flex pt-16 pb-4 px-4 min-h-full">
         <For each={[...Array(NB_IMAGES)]}>
           {(_, i) => (
             <div
+              // class="duration-700 ease-in-out w-full h-full"
               class="duration-700 ease-in-out w-full h-[calc(100vh_-_5rem)]"
-              // class="duration-700 ease-in-out w-full h-screen"
               classList={{
                 "-translate-x-full hidden": i() !== current(),
                 "translate-x-0": i() === current(),

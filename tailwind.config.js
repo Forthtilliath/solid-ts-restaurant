@@ -31,6 +31,7 @@ module.exports = {
       ...colors,
       ori: {
         black: "#0e0b0d",
+        red: "#B02C36",
         green: {
           DEFAULT: "hsl(163,100%,15%)",
           light: "hsl(163,100%,25%)",

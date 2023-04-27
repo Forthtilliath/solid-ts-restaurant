@@ -7,14 +7,12 @@ type Props = {
 export function About(props: Props) {
   return (
     <section
-      class="min-h-screen bg-gradient-radial from-ori-green to-ori-black to-60% py-8"
+      class="min-h-[calc(100vh_-_4rem)] bg-gradient-radial from-ori-green to-ori-black to-60% pt-16"
       id="about"
       ref={props.ref}
     >
-      <div class="w-full min-h-screen flex justify-center items-center flex-col">
-        {/* <div class="max-w-4xl m-2"> */}
+      <div class="w-full min-h-[calc(100vh_-_4rem)] flex justify-center items-center flex-col">
         <h2 class="h2 max-w-4xl m-2">Rôtisserie Sandwichs Maison</h2>
-        {/* </div> */}
         <div class="bg-black/70 p-6 rounded-lg shadow-hero shadow-yellow-300 max-w-4xl m-4">
           <p class="text-yellow-300 text-xl font-courgette leading-8 indent-6 md:text-justify">
             Cette rôtisserie traditionnelle est née ici, place de la Visitation
