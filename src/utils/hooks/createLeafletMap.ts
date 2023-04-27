@@ -4,9 +4,14 @@ import L, { Layer } from "leaflet";
 export function createLeafletMap(
   div: HTMLDivElement,
   position: L.LatLngExpression,
-  zoom = 10
+  zoom = 10,
 ) {
-  const map = L.map(div).setView(position, zoom);
+  const options = {
+    scrollWheelZoom: false
+  }
+  const map = L.map(div, options).setView(position, zoom, {
+
+  });
 
   L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
     attribution:

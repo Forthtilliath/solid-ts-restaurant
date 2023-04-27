@@ -35,7 +35,7 @@ export function Where(props: Props) {
       id="where"
       ref={props.ref}
     >
-      <div class="w-full min-h-full h-[calc(100vh_-_4rem)] flex justify-center items-center flex-col">
+      <div class="w-full h-[calc(100vh_-_4rem)] flex justify-center items-center flex-col">
         <h2 class="h2 max-w-4xl m-2">Où nous trouver ?</h2>
         <div
           id="map"

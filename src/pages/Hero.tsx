@@ -1,4 +1,3 @@
-import { Section } from "../parts";
 import video from "../assets/hero.mp4";
 import { createTimeBetween } from "../utils/hooks/createTimeBetween";
 import { Show } from "solid-js";
@@ -12,7 +11,7 @@ export function Hero(props: Props) {
   const [isOpen, openIn] = createTimeBetween("10:30:00", "21:00:00");
 
   return (
-    <Section
+    <section
       class="relative h-screen flex flex-col items-center justify-center text-center text-white py-0 px-3"
       id="hero"
       ref={props.ref}
@@ -42,6 +41,6 @@ export function Hero(props: Props) {
           </Show>
         </div>
       </div>
-    </Section>
+    </section>
   );
 }

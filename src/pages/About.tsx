@@ -1,5 +1,3 @@
-import { Section } from "../parts";
-
 type Props = {
   ref: HTMLDivElement;
 };

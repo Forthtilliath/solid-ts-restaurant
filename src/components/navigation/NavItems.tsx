@@ -1,4 +1,4 @@
-import { Accessor, For, createEffect, mergeProps } from "solid-js";
+import { Accessor, For } from "solid-js";
 import { NavItem } from "./NavItem.jsx";
 
 type Props = {
@@ -34,7 +34,6 @@ const nav = [
 ];
 
 export function NavItems(props: Props) {
-  createEffect(()=> console.log(props.current()))
   return (
     <For each={nav}>
       {(navItem) => (

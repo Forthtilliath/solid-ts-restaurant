@@ -6,6 +6,7 @@ export function createSectionObserver() {
   const useVisibilityObserver = createVisibilityObserver(
     { threshold: 0.5 },
     (entry) => {
+      console.log(entry.target.id, entry.intersectionRatio, entry.intersectionRect)
       if (entry.isIntersecting) {
         setCurrentSectionId(entry.target.id);
       }

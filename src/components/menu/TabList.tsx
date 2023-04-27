@@ -20,7 +20,7 @@ export function TabList(props: Props) {
             openTab={props.openTab}
             setOpenTab={props.setOpenTab}
           >
-            {tab.icon} {tab.label}
+            {tab.icon({ size: "1rem" })} {tab.label}
           </TabListItem>
         )}
       </For>
