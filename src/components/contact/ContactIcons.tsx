@@ -66,3 +66,36 @@ export function AiFillMessage(props: Props) {
     </svg>
   );
 }
+
+export function FaSolidUser(props: Props) {
+  return (
+    <svg
+      fill="currentColor"
+      stroke-width="0"
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 448 512"
+      height={props.size ?? "1em"}
+      width={props.size ?? "1em"}
+      style="overflow: visible;"
+    >
+      <path d="M224 256c70.7 0 128-57.31 128-128S294.7 0 224 0 96 57.31 96 128s57.3 128 128 128zm50.7 48H173.3C77.61 304 0 381.6 0 477.3c0 19.14 15.52 34.67 34.66 34.67h378.7C432.5 512 448 496.5 448 477.3c0-95.7-77.6-173.3-173.3-173.3z"></path>
+    </svg>
+  );
+}
+
+export function RiFileList3Fill(props: Props) {
+  return (
+    <svg
+      stroke="currentColor"
+      fill="currentColor"
+      stroke-width="0"
+      viewBox="0 0 24 24"
+      height={props.size ?? "1em"}
+      width={props.size ?? "1em"}
+      xmlns="http://www.w3.org/2000/svg"
+    >
+    <path fill="none" d="M0 0h24v24H0z"></path>
+    <path d="M19 22H5a3 3 0 0 1-3-3V3a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v12h4v4a3 3 0 0 1-3 3zm-1-5v2a1 1 0 0 0 2 0v-2h-2zM6 7v2h8V7H6zm0 4v2h8v-2H6zm0 4v2h5v-2H6z"></path>
+    </svg>
+  );
+}

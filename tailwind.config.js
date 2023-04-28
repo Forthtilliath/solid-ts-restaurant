@@ -80,6 +80,9 @@ module.exports = {
               {},
           },
         },
+        ".h3": {
+          "@apply h2 text-2xl px-8": {}
+        }
       });
     }),
   ],

@@ -11,7 +11,7 @@ export function TabListItem(props: ParentProps<Props>) {
     <li class="-mb-px flex-auto text-center">
       <button
         class={
-          "text-xs font-bold uppercase px-3 py-3 shadow-lg rounded leading-normal w-full flex items-center justify-center gap-2"
+          "text-xs font-bold uppercase p-3 shadow-lg rounded leading-normal w-full flex items-center justify-center gap-2"
         }
         classList={{
           "text-white bg-yellow-600": props.openTab() === props.id,

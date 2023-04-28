@@ -4,9 +4,9 @@ import { createSignal, onMount } from "solid-js";
 export function createSectionObserver() {
   const [currentSectionId, setCurrentSectionId] = createSignal<string>("");
   const useVisibilityObserver = createVisibilityObserver(
-    { threshold: 0.5 },
+    // TODO Fixer l'élément visible
+    { threshold: 0.1 },
     (entry) => {
-      console.log(entry.target.id, entry.intersectionRatio, entry.intersectionRect)
       if (entry.isIntersecting) {
         setCurrentSectionId(entry.target.id);
       }
