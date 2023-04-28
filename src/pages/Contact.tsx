@@ -8,14 +8,14 @@ type Props = {
 export function Contact(props: Props) {
   return (
     <section
-      class="min-h-screen bg-gradient-radial from-teal-300 to-ori-black to-60% pt-16"
+      class="min-h-screen bg-gradient-radial from-teal-300 to-ori-black to-50% pt-16"
       id="contact"
       ref={props.ref}
     >
       <div class="max-w-4xl w-full flex justify-center items-center flex-col mx-auto">
         <h2 class="h2 m-2">Comment nous contacter ?</h2>
         {/* Tel, mail & adresse */}
-        <div class="grid grid-rows-2 grid-flow-col mt-8 gap-2">
+        <div class="grid sm:grid-rows-2 sm:grid-flow-col mt-8 gap-2">
           <LinkCard href="tel:+33241879700" type="phone">
             02.41.87.97.00
           </LinkCard>

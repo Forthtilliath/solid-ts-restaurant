@@ -16,7 +16,7 @@ export function LinkCard(props: ParentProps<Props>) {
     <div
       class="flex gap-3 items-center p-3 rounded bg-white"
       classList={{
-        "row-span-2": props.rowspan,
+        "sm:row-span-2": props.rowspan,
       }}
     >
       <Switch>
