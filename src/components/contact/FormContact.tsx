@@ -1,53 +1,83 @@
 import { createSignal } from "solid-js";
 import { FormInput } from "./FormInput";
 
+export const NAMES = ["name", "mail", "phone", "subject", "message"] as const;
+const patterns = {
+  name: /\w{3,}/
+}
+
+const INITIAL_ERROR = NAMES.reduce(
+  (acc, name) => ({
+    ...acc,
+    [name]: { empty: false, pattern: false },
+  }),
+  {} as TError
+);
+
 export function FormContact() {
   /**
-   * error : 
+   * error :
    * {
    *   empty: true,
    *   pattern: true
    * }
    */
-  const [emptyFields, setEmptyFields] = createSignal<string[]>([]);
+  // const [emptyFields, setEmptyFields] = createSignal<string[]>([]);
+  const [error, setError] = createSignal<TError>(INITIAL_ERROR);
   const handleSubmit = (e: TSubmitEvent) => {
     e.preventDefault();
 
     const form = e.currentTarget;
     const formData = new FormData(form);
 
-    const arrEmptyFields = Array.from(formData)
-      .filter(([, value]) => value === "")
-      .map(([name]) => name);
-
-    if (arrEmptyFields.length) {
-      setEmptyFields(arrEmptyFields);
-      return;
-    }
+    // const input = form["name" as TInputName] as HTMLInputElement;
+    // console.log(new RegExp(input.pattern).test(input.value));
+    setError(
+      Array.from(formData).reduce((err, [name, value]) => {
+        const input = form[name] as HTMLInputElement;
+        // const testPattern = new RegExp(input.pattern).test(input.value);
+        const testPattern = new RegExp(input.pattern).test(input.value);
+        console.log(name, testPattern)
+        return {
+          ...err,
+          [name]: { empty: value === "", pattern: !testPattern },
+        };
+      }, {} as TError)
+    );
+    // setError(
+    //   Array.from(formData).reduce(
+    //     (err, [name, value]) => ({
+    //       ...err,
+    //       [name]: { empty: value === "", pattern: false },
+    //     }),
+    //     {} as TError
+    //   )
+    // );
 
     console.log("Envoie du message... ", ...formData);
     form.reset();
   };
 
   return (
-    <form class='w-full' onSubmit={handleSubmit}>
+    <form class="w-full" onSubmit={handleSubmit}>
       <div class="grid md:grid-cols-3 gap-4 mt-5 mx-auto p-2 w-full max-w-[500px] md:w-auto md:max-w-full">
         {/* <div class="grid grid-cols-3 gap-8 mt-5 bg-ori-black/70"> */}
         {/* <div class=""> */}
         <FormInput
-          error={emptyFields().includes("name")}
+          error={error}
           name="name"
           icon="user"
           placeholder="Votre nom"
+          pattern="\w{3,}"
         />
         <FormInput
-          error={emptyFields().includes("mail")}
+          error={error}
           name="mail"
           icon="mail"
           placeholder="Votre courriel"
         />
         <FormInput
-          error={emptyFields().includes("phone")}
+          error={error}
           name="phone"
           icon="phone"
           placeholder="Votre n° de téléphone"
@@ -55,7 +85,7 @@ export function FormContact() {
         {/* </div> */}
         <div class="md:col-span-3">
           <FormInput
-            error={emptyFields().includes("subject")}
+            error={error}
             name="subject"
             icon="subject"
             placeholder="Objet"
@@ -63,7 +93,7 @@ export function FormContact() {
         </div>
         <div class="md:col-span-3">
           <FormInput
-            error={emptyFields().includes("message")}
+            error={error}
             name="message"
             placeholder="Votre message"
             type="textarea"
