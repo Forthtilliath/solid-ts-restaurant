@@ -10,8 +10,7 @@ export function Tabulations() {
   const [openTab, setOpenTab] = createSignal(0);
 
   return (
-    <div class="flex flex-wrap max-w-4xl m-2">
-      <div class="w-full">
+    <div class="flex flex-wrap max-w-4xl w-full m-2">
         <TabList openTab={openTab} setOpenTab={setOpenTab} />
         <div class="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded">
           <div class="px-4 py-5 flex-auto">
@@ -35,7 +34,6 @@ export function Tabulations() {
               </Switch>
             </div>
           </div>
-        </div>
       </div>
     </div>
   );

@@ -29,7 +29,7 @@ export function Gallery(props: Props) {
               }}
             >
               <img
-                src={`${PATH}${i()}.jpg`}
+                src={`${PATH}${i()}.webp`}
                 class="absolute block max-w-full h-auto max-h-[calc(100vh_-_5rem)] -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
                 alt="Photo du restaurant"
               />

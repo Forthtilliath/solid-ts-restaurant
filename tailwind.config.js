@@ -33,6 +33,8 @@ module.exports = {
       ori: {
         black: "#0e0b0d",
         red: "#B02C36",
+        orange: "#f7630c",
+        yellow: "#fce100",
         green: {
           DEFAULT: "hsl(163,100%,15%)",
           light: "hsl(163,100%,25%)",
@@ -70,7 +72,7 @@ module.exports = {
           },
         },
         ".h2": {
-          "@apply text-[#f7630c] text-center text-shadow-sm shadow-ori-black font-bold relative text-[clamp(1rem,20vw,2.25rem)] leading-[clamp(1rem,20vw,2.25rem)] px-12":
+          "@apply text-ori-orange text-center text-shadow-sm shadow-ori-black font-bold relative text-[clamp(1rem,20vw,2.25rem)] leading-[clamp(1rem,20vw,2.25rem)] px-12":
             {},
           "&::before": {
             "@apply flame text-[1em] leading-none top-0 left-0 h-full flex items-center -scale-x-100":

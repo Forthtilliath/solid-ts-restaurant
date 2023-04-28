@@ -10,8 +10,8 @@ type Props = {
 export function TabList(props: Props) {
   return (
     <ul
-      class="flex mb-0 list-none flex-wrap pt-3 pb-4 flex-row gap-2"
-      role="tablist"
+      class="flex mb-0 list-none flex-wrap pt-3 pb-4 flex-row gap-2 w-full"
+      role="list"
     >
       <For each={TABS}>
         {(tab) => (
@@ -19,6 +19,7 @@ export function TabList(props: Props) {
             id={tab.id}
             openTab={props.openTab}
             setOpenTab={props.setOpenTab}
+            label={tab.label}
           >
             {tab.icon({ size: "1rem" })} {tab.label}
           </TabListItem>

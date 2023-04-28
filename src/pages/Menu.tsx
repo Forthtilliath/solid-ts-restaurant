@@ -7,7 +7,7 @@ type Props = {
 export function Menu(props: Props) {
   return (
     <section
-      class="min-h-[calc(100vh_-_4rem)] bg-gradient-radial from-yellow-300 to-ori-black to-60% pt-16"
+      class="min-h-[calc(100vh_-_4rem)] bg-ori-black pt-16"
       id="menu"
       ref={props.ref}
     >

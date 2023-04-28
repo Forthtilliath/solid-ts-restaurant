@@ -4,18 +4,20 @@ type Props = {
   id: number;
   openTab: Accessor<number>;
   setOpenTab: Setter<number>;
+  label: string;
 };
 
 export function TabListItem(props: ParentProps<Props>) {
   return (
     <li class="-mb-px flex-auto text-center">
       <button
+        type="button"
         class={
           "text-xs font-bold uppercase p-3 shadow-lg rounded leading-normal w-full flex items-center justify-center gap-2"
         }
         classList={{
-          "text-white bg-yellow-600": props.openTab() === props.id,
-          "text-yellow-600 bg-white": props.openTab() !== props.id,
+          "text-ori-black bg-ori-orange": props.openTab() === props.id,
+          "text-ori-black bg-white": props.openTab() !== props.id,
         }}
         onClick={(e) => {
           e.preventDefault();
@@ -23,6 +25,7 @@ export function TabListItem(props: ParentProps<Props>) {
         }}
         data-toggle="tab"
         role="tablist"
+        aria-label={props.label}
       >
         {props.children}
       </button>
