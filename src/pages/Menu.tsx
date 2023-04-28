@@ -13,6 +13,7 @@ export function Menu(props: Props) {
     >
       <div class="w-full min-h-full flex justify-center items-center flex-col">
         <h2 class="h2 max-w-4xl m-2">Nos menus</h2>
+        <p class="text-2xl text-white my-3">A livrer ou à emporter</p>
         <Tabulations />
       </div>
     </section>
