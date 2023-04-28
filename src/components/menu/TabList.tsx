@@ -9,9 +9,9 @@ type Props = {
 
 export function TabList(props: Props) {
   return (
-    <ul
+    <div
       class="flex mb-0 list-none flex-wrap pt-3 pb-4 flex-row gap-2 w-full"
-      role="list"
+      role="tablist"
     >
       <For each={TABS}>
         {(tab) => (
@@ -25,6 +25,6 @@ export function TabList(props: Props) {
           </TabListItem>
         )}
       </For>
-    </ul>
+    </div>
   );
 }

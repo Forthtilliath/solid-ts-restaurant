@@ -4,7 +4,7 @@ import { CardAccompaniement } from "../cards/CardAccompaniement";
 
 export function TabAccompaniement() {
   return (
-    <div>
+    <div role="tabpanel">
       <For each={accompaniement}>
         {(acc) => <CardAccompaniement {...acc} />}
       </For>

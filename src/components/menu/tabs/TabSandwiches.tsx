@@ -4,7 +4,7 @@ import { CardMenu } from "../cards/CardMenu";
 
 export function TabSandwiches() {
   return (
-    <div>
+    <div role="tabpanel">
       <h3 class="h3 w-fit mx-auto py-4 text-ori-black">Sandwiches</h3>
       <For each={sandwiches}>{(sand) => <CardMenu {...sand} />}</For>
 

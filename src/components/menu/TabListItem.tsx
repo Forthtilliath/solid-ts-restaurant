@@ -9,7 +9,7 @@ type Props = {
 
 export function TabListItem(props: ParentProps<Props>) {
   return (
-    <li class="-mb-px flex-auto text-center">
+    <div class="-mb-px flex-auto text-center">
       <button
         type="button"
         class={
@@ -24,11 +24,12 @@ export function TabListItem(props: ParentProps<Props>) {
           props.setOpenTab(props.id);
         }}
         data-toggle="tab"
-        role="tablist"
+        role="tab"
         aria-label={props.label}
+        aria-selected={props.openTab() !== props.id}
       >
         {props.children}
       </button>
-    </li>
+    </div>
   );
 }
