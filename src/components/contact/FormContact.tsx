@@ -56,7 +56,7 @@ export function FormContact() {
           name="mail"
           icon="mail"
           placeholder="Votre courriel"
-          pattern="[\w-\.]+@([\w-]+\.)+[\w-]{2,4}"
+          pattern="[\w\-\.]+@([\w\-]+\.)+[\w\-]{2,4}"
         />
         <FormInput
           error={error}
@@ -64,7 +64,7 @@ export function FormContact() {
           name="phone"
           icon="phone"
           placeholder="Votre n° de téléphone"
-          pattern="(?:[\s.-]*\d{2}){5}"
+          pattern="(?:[\s.\-]*\d{2}){5}"
         />
         {/* </div> */}
         <div class="md:col-span-3">

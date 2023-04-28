@@ -92,6 +92,7 @@ export function FormInput(props: Props) {
           ref={inputRef! as HTMLTextAreaElement}
           name={props.name}
           placeholder={props.placeholder}
+          required
           class="p-3 placeholder-slate-400 text-ori-black bg-white rounded border border-slate-400 outline-none focus:outline-none focus:ring w-full h-48"
           classList={{
             "border-red-600 border-2 rounded-b-none": hasError(),
@@ -110,7 +111,7 @@ export function FormInput(props: Props) {
               Veuillez remplir le champ
             </Match>
             <Match when={props.error[props.name].pattern}>
-              Veuillez respecter le pattern
+              Format incorrect
             </Match>
           </Switch>
         </p>
