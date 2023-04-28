@@ -85,32 +85,32 @@ export const sandwiches = [
 export const formules = [
   {
     name: "Formule Boisson",
-    addPrice: 140,
+    price: 140,
     desc: "Boisson",
   },
   {
     name: "Formule Dessert",
-    addPrice: 240,
+    price: 240,
     desc: "Dessert",
   },
   {
     name: "Formule Boisson Dessert",
-    addPrice: 370,
+    price: 370,
     desc: "Boisson, dessert",
   },
   {
     name: "Formule Frite Boisson",
-    addPrice: 430,
+    price: 430,
     desc: "Boisson, frites sauce",
   },
   {
     name: "Formule Complète",
-    addPrice: 650,
+    price: 650,
     desc: "Boisson, dessert, frites sauce",
   },
   {
     name: "Formule Bière artisanale",
-    addPrice: 370,
+    price: 370,
     desc: "Bière artisanale",
   },
 ];
