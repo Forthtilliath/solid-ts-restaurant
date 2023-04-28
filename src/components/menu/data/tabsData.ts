@@ -1,4 +1,4 @@
-import { BsBasket2, FaSolidBowlFood, GiChicken, GiSandwich, RiMapRestaurant2Fill } from "./MenuIcons";
+import { BsBasket2, FaSolidBowlFood, GiChicken, GiSandwich, RiMapRestaurant2Fill } from "../MenuIcons";
 
 export const TABS = [
   {

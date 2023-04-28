@@ -1,14 +1,11 @@
+import { For } from "solid-js";
+import { CardMenu } from "../CardMenu";
+import { menus_frites } from "../data/menusData";
+
 export function TabMenus() {
   return (
     <div>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto
-        blanditiis sapiente id deserunt. Dignissimos odio voluptate enim
-        doloribus vitae, cupiditate consequuntur repellat nostrum quam
-        consequatur laudantium eos reprehenderit quod eum natus est, eligendi
-        fugiat similique at asperiores distinctio libero laborum error? Maiores
-        labore quasi asperiores nesciunt dolorum. Dignissimos, nisi quisquam?
-      </p>
+      <For each={menus_frites}>{(menu) => <CardMenu {...menu} />}</For>
     </div>
   );
 }

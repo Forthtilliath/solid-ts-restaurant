@@ -7,7 +7,7 @@ import { TabBasket } from "./tabs/TabBasket";
 import { TabChickens } from "./tabs/TabChickens";
 
 export function Tabulations() {
-  const [openTab, setOpenTab] = createSignal(1);
+  const [openTab, setOpenTab] = createSignal(0);
 
   return (
     <div class="flex flex-wrap max-w-4xl m-2">

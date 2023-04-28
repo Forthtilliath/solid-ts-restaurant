@@ -1,6 +1,6 @@
 import { Accessor, For, Setter } from "solid-js";
 import { TabListItem } from "./TabListItem";
-import { TABS } from "./tabsData";
+import { TABS } from "./data/tabsData";
 
 type Props = {
   openTab: Accessor<number>;
