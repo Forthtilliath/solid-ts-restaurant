@@ -1,15 +1,16 @@
 import { FormInput } from "./FormInput";
 
 export function FormContact() {
-  const handleSubmit = (e: SubmitEvent) => {
-      e.preventDefault();
-      
+  const handleSubmit = (e: TSubmitEvent) => {
+    e.preventDefault();
+
+    console.dir(e.currentTarget);
   };
 
   return (
-    <div class="grid grid-cols-3 gap-4 mt-5">
+    <form onSubmit={handleSubmit}>
+      <div class="grid grid-cols-3 gap-4 mt-5">
         {/* <div class="grid grid-cols-3 gap-8 mt-5 bg-ori-black/70"> */}
-      <form onSubmit={handleSubmit}>
         {/* <div class=""> */}
         <FormInput icon="user" placeholder="Votre nom" />
         <FormInput icon="mail" placeholder="Votre courriel" />
@@ -32,7 +33,7 @@ export function FormContact() {
             Envoyer
           </button>
         </div>
-      </form>
-    </div>
+      </div>
+    </form>
   );
 }
