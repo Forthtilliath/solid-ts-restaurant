@@ -1,10 +1,8 @@
 import { createSignal } from "solid-js";
+import { createStore } from "solid-js/store";
 import { FormInput } from "./FormInput";
 
 export const NAMES = ["name", "mail", "phone", "subject", "message"] as const;
-const patterns = {
-  name: /\w{3,}/
-}
 
 const INITIAL_ERROR = NAMES.reduce(
   (acc, name) => ({
@@ -15,44 +13,25 @@ const INITIAL_ERROR = NAMES.reduce(
 );
 
 export function FormContact() {
-  /**
-   * error :
-   * {
-   *   empty: true,
-   *   pattern: true
-   * }
-   */
-  // const [emptyFields, setEmptyFields] = createSignal<string[]>([]);
-  const [error, setError] = createSignal<TError>(INITIAL_ERROR);
+  const [error, setError] = createStore<TError>(INITIAL_ERROR);
   const handleSubmit = (e: TSubmitEvent) => {
     e.preventDefault();
 
     const form = e.currentTarget;
     const formData = new FormData(form);
 
-    // const input = form["name" as TInputName] as HTMLInputElement;
-    // console.log(new RegExp(input.pattern).test(input.value));
-    setError(
-      Array.from(formData).reduce((err, [name, value]) => {
-        const input = form[name] as HTMLInputElement;
-        // const testPattern = new RegExp(input.pattern).test(input.value);
-        const testPattern = new RegExp(input.pattern).test(input.value);
-        console.log(name, testPattern)
-        return {
-          ...err,
-          [name]: { empty: value === "", pattern: !testPattern },
-        };
-      }, {} as TError)
+    const checks = Array.from(formData).reduce(
+      (err, [name, value]) => ({
+        ...err,
+        [name]: { empty: value === "", pattern: false },
+      }),
+      {} as TError
     );
-    // setError(
-    //   Array.from(formData).reduce(
-    //     (err, [name, value]) => ({
-    //       ...err,
-    //       [name]: { empty: value === "", pattern: false },
-    //     }),
-    //     {} as TError
-    //   )
-    // );
+    setError(checks);
+
+    if (Object.values(checks).some((check) => check.empty)) {
+      return;
+    }
 
     console.log("Envoie du message... ", ...formData);
     form.reset();
@@ -65,27 +44,33 @@ export function FormContact() {
         {/* <div class=""> */}
         <FormInput
           error={error}
+          setError={setError}
           name="name"
           icon="user"
           placeholder="Votre nom"
-          pattern="\w{3,}"
+          pattern="(?=[\w._ \-]{3,20}$)(?!.*[_. \-]{2})[^_. \-].*[^_. \-]"
         />
         <FormInput
           error={error}
+          setError={setError}
           name="mail"
           icon="mail"
           placeholder="Votre courriel"
+          pattern="[\w-\.]+@([\w-]+\.)+[\w-]{2,4}"
         />
         <FormInput
           error={error}
+          setError={setError}
           name="phone"
           icon="phone"
           placeholder="Votre n° de téléphone"
+          pattern="(?:[\s.-]*\d{2}){5}"
         />
         {/* </div> */}
         <div class="md:col-span-3">
           <FormInput
             error={error}
+            setError={setError}
             name="subject"
             icon="subject"
             placeholder="Objet"
@@ -94,6 +79,7 @@ export function FormContact() {
         <div class="md:col-span-3">
           <FormInput
             error={error}
+            setError={setError}
             name="message"
             placeholder="Votre message"
             type="textarea"

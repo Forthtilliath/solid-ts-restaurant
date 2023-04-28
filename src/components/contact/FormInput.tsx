@@ -1,27 +1,56 @@
-import { Accessor, Match, Show, Switch, mergeProps } from "solid-js";
+import {
+  Accessor,
+  Match,
+  Show,
+  Switch,
+  mergeProps,
+  onCleanup,
+  onMount,
+} from "solid-js";
 import {
   BsMailbox2,
   FaSolidPhoneFlip,
   FaSolidUser,
   RiFileList3Fill,
 } from "./ContactIcons";
+import { SetStoreFunction } from "solid-js/store";
 
 type Props = {
   icon?: "user" | "phone" | "mail" | "subject";
   placeholder: HTMLInputElement["placeholder"];
   name: TInputName;
-  error: Accessor<TError>;
+  error: TError;
+  setError: SetStoreFunction<TError>;
   type?: "text" | "textarea";
   pattern?: HTMLInputElement["pattern"];
 };
 
 export function FormInput(props: Props) {
+  let inputRef: HTMLTextAreaElement | HTMLInputElement;
+
   const hasError = () => {
-    const err = props.error()[props.name];
+    const err = props.error[props.name];
     return err.empty || err.pattern;
   };
 
-  // let input = HTMLInputElement;
+  const handleInvalid = (event: Event) => {
+    event.preventDefault();
+    props.setError(props.name, { pattern: true });
+  };
+
+  const handleInput = (_event: Event) => {
+    props.setError(props.name, { empty: false, pattern: false });
+  };
+
+  onMount(() => {
+    inputRef.addEventListener("invalid", handleInvalid);
+    inputRef.addEventListener("input", handleInput);
+  });
+
+  onCleanup(() => {
+    inputRef.removeEventListener("invalid", handleInvalid);
+    inputRef.removeEventListener("input", handleInput);
+  });
 
   return (
     <div class="relative w-full mb-3">
@@ -45,10 +74,12 @@ export function FormInput(props: Props) {
         when={props.type === "textarea"}
         fallback={
           <input
+            ref={inputRef! as HTMLInputElement}
             type="text"
             name={props.name}
             placeholder={props.placeholder}
             pattern={props.pattern}
+            required
             class="p-3 placeholder-slate-400 text-ori-black relative bg-white rounded border border-slate-400 outline-none focus:outline-none focus:ring w-full"
             classList={{
               "pl-10": props.icon !== undefined,
@@ -58,6 +89,7 @@ export function FormInput(props: Props) {
         }
       >
         <textarea
+          ref={inputRef! as HTMLTextAreaElement}
           name={props.name}
           placeholder={props.placeholder}
           class="p-3 placeholder-slate-400 text-ori-black bg-white rounded border border-slate-400 outline-none focus:outline-none focus:ring w-full h-48"
@@ -67,7 +99,6 @@ export function FormInput(props: Props) {
         />
       </Show>
       <Show when={hasError()}>
-        {/* <Show when={props.error} fallback={<div class="h-8" />}> */}
         <p
           class="text-red-100 font-bold text-xs px-2 bg-red-600 w-full p-1 rounded rounded-t-none"
           classList={{
@@ -75,10 +106,10 @@ export function FormInput(props: Props) {
           }}
         >
           <Switch>
-            <Match when={props.error()[props.name].empty}>
+            <Match when={props.error[props.name].empty}>
               Veuillez remplir le champ
             </Match>
-            <Match when={props.error()[props.name].pattern}>
+            <Match when={props.error[props.name].pattern}>
               Veuillez respecter le pattern
             </Match>
           </Switch>
