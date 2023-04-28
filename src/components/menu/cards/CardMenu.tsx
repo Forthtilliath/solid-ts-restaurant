@@ -4,7 +4,7 @@ import { formatPrice } from "../../../utils/methods/number";
 type Props = {
   name: string;
   price: number;
-  desc: string;
+  desc?: string;
   addPrice?: boolean;
 };
 
@@ -21,7 +21,7 @@ export function CardMenu(props: Props) {
           {formatPrice(props.price)}
         </div>
       </div>
-      <div class="">{props.desc}</div>
+      <div>{props.desc}</div>
     </div>
   );
 }
