@@ -8,9 +8,12 @@ type Props = {
 
 export function CardMenu(props: Props) {
   return (
-    <div class="grid gap-1 grid-cols-[1fr_80px] mb-4">
-      <div class="text-xl font-bold">{props.name}</div>
-      <div class="text-xl text-right">{formatPrice(props.price)}</div>
+    <div class="mb-4">
+      <div class="flex">
+        <div class="text-xl font-bold">{props.name}</div>
+        <div class="flex-grow border-b-2 border-dotted border-ori-black mx-1 mb-[6px]" />
+        <div class="text-xl text-right">{formatPrice(props.price)}</div>
+      </div>
       <div class="">{props.desc}</div>
     </div>
   );
