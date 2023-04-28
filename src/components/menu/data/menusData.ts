@@ -115,10 +115,10 @@ export const formules = [
   },
 ];
 
-export const accompagnement = [
+export const accompaniement = [
   {
     name: "Pommes de terre l'Oriflamme ou frites maison",
-    prices: [
+    type: [
       {
         name: "Petite barquette",
         price: 270,
@@ -135,7 +135,7 @@ export const accompagnement = [
   },
   {
     name: "Accompagnement",
-    prices: [
+    type: [
       {
         name: "Champignons",
         price: 60,
