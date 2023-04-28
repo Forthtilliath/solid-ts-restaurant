@@ -63,7 +63,7 @@ module.exports = {
         ".flame-around": {
           "@apply relative px-6": {},
           "&::before": {
-            "@apply flame left-0 translate-y-1/2 -scale-x-100": {},
+            "@apply flame top-0 left-0 translate-y-1/2 -scale-x-100": {},
           },
           "&::after": {
             "@apply flame right-0 translate-y-1/2": {},
@@ -73,7 +73,7 @@ module.exports = {
           "@apply text-[#f7630c] text-center text-shadow-sm shadow-ori-black font-bold relative text-[clamp(1rem,20vw,2.25rem)] leading-[clamp(1rem,20vw,2.25rem)] px-12":
             {},
           "&::before": {
-            "@apply flame text-[1em] leading-none left-0 h-full flex items-center -scale-x-100":
+            "@apply flame text-[1em] leading-none top-0 left-0 h-full flex items-center -scale-x-100":
               {},
           },
           "&::after": {

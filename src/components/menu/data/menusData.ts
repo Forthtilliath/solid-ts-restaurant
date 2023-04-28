@@ -17,18 +17,18 @@ export const menus_frites = [
 ];
 
 export const menus_1997 = {
-  desc: "1/4 de poulet, Pomme de terre ou frites, Accompagnement ou sauce maison, Boisson, Dessert",
-  prices: [
+  desc: "1/4 de poulet, pomme de terre ou frites, accompagnement ou sauce maison, boisson, dessert",
+  parts: [
     {
-      parts: 1,
+      nb: 1,
       price: 1000,
     },
     {
-      parts: 2,
+      nb: 2,
       price: 1900,
     },
     {
-      parts: 3,
+      nb: 3,
       price: 3700,
     },
   ],

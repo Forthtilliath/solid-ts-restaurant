@@ -1,4 +1,4 @@
-import { formatPrice } from "../../utils/methods/number";
+import { formatPrice } from "../../../utils/methods/number";
 
 type Props = {
   name: string;
@@ -8,7 +8,7 @@ type Props = {
 
 export function CardMenu(props: Props) {
   return (
-    <div class="grid gap-1 grid-cols-[1fr_100px] mb-4">
+    <div class="grid gap-1 grid-cols-[1fr_80px] mb-4">
       <div class="text-xl font-bold">{props.name}</div>
       <div class="text-xl text-right">{formatPrice(props.price)}</div>
       <div class="">{props.desc}</div>
