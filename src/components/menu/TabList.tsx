@@ -10,7 +10,7 @@ type Props = {
 export function TabList(props: Props) {
   return (
     <div
-      class="flex mb-0 list-none flex-wrap pt-3 pb-4 flex-row gap-2 w-full"
+      class="flex mb-0 list-none flex-wrap pt-3 pb-4 flex-row gap-2 w-full mx-2"
       role="tablist"
     >
       <For each={TABS}>

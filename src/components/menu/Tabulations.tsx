@@ -12,7 +12,7 @@ export function Tabulations() {
   return (
     <div class="flex flex-wrap max-w-4xl w-full m-2">
         <TabList openTab={openTab} setOpenTab={setOpenTab} />
-        <div class="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded">
+        <div class="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded mx-2">
           <div class="px-4 py-5 flex-auto">
             <div class="tab-content tab-space">
               <Switch>
