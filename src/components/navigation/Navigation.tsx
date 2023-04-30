@@ -14,10 +14,10 @@ export function Navigation(props: Props) {
 
   return (
     <menu
-      class="flex backdrop-blur"
+      class="flex"
       classList={{
         "gap-5": !isMobile(),
-        "gap-3 py-2 flex-col absolute w-full bg-black/70 left-0 top-14 text-2xl text-center pb-5 transition-all duration-500":
+        "gap-3 py-2 flex-col absolute w-full bg-black/70 left-0 top-14 text-2xl text-center pb-5 transition-all duration-500 backdrop-blur":
           isMobile(),
         "opacity-0 -translate-y-[200%]": isMobile() && !merged.open(),
       }}
