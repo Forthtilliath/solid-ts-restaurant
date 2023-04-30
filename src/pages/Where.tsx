@@ -4,6 +4,7 @@ import {
   createMarker,
 } from "../utils/hooks/createLeafletMap";
 import { LatLngTuple } from "leaflet";
+import { createMediaQuery } from "../utils/hooks/createMediaQuery";
 
 type Props = {
   ref: HTMLDivElement;
@@ -13,6 +14,7 @@ export function Where(props: Props) {
   let mapRef: HTMLDivElement;
   const mapPosition: LatLngTuple = [47.467527, -0.556638];
   const oriflammePosition: LatLngTuple = [47.466854, -0.556789];
+  const isMobile = createMediaQuery("(max-width: 768px)");
 
   onMount(() => {
     const map = createLeafletMap(mapRef, mapPosition, 30);
@@ -21,7 +23,7 @@ export function Where(props: Props) {
       oriflammePosition,
       /* html */ `
       <h3 class="font-bold text-2xl">L'Oriflamme</h3>
-      <p>Volailles et saucisses dans une rôtisserie offrant des sandwiches chauds, des accompagnements et des désserts.</p>
+      <p>Volailles et saucisses dans une rôtisserie offrant des sandwiches chauds, des accompagnements et des desserts.</p>
       <p>Ouvert <u>tous les jours</u> de <b>10h30</b> à <b>21h</b>.</p>
       <p>
         <a
@@ -32,7 +34,7 @@ export function Where(props: Props) {
       </p>
       <img
         src="https://lh5.googleusercontent.com/p/AF1QipMIGWkhfuUECpo9wIbx16NwCCnv-iddcQkdKvrF=w408-h272-k-no"
-        class="rounded"
+        class="rounded hidden sm:block"
         alt="Montre une diversité d'aliments que propose l'oriflamme"
       />
       `
@@ -50,7 +52,7 @@ export function Where(props: Props) {
         <div
           id="map"
           ref={mapRef!}
-          class="z-0 mt-5 rounded max-w-4xl w-full h-3/4"
+          class="z-0 mt-5 rounded max-w-4xl w-full h-96 sm:h-3/4"
         ></div>
       </div>
     </section>
