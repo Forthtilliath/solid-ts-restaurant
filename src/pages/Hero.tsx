@@ -26,16 +26,16 @@ export function Hero(props: Props) {
         />
       </div>
       <div class="absolute w-full h-screen flex justify-center items-center flex-col">
-        <div class="bg-black/50 p-3 rounded-lg font-courgette shadow-hero shadow-yellow-300">
-          <h1 class="text-6xl text-yellow-300">Bienvenue chez l'Oriflamme</h1>
-          <h2 class="text-4xl text-yellow-400">Rôtisserie Sandwichs Maison</h2>
+        <div class="bg-black/50 p-3 rounded-lg font-courgette shadow-hero shadow-yellow-300 mx-2">
+          <h1 class="text-3xl sm:text-6xl text-yellow-300">Bienvenue chez l'Oriflamme</h1>
+          <h2 class="text-2xl sm:text-4xl text-yellow-400">Rôtisserie Sandwichs Maison</h2>
           <Show when={isOpen()}>
-            <p class="text-2xl text-yellow-500">
+            <p class="text-xl sm:text-2xl text-yellow-500">
               Nous sommes ouvert jusqu'à 21h !
             </p>
           </Show>
           <Show when={isOpen() === false}>
-            <p class="text-2xl">
+            <p class="text-xl sm:text-2xl">
               Nous ouvrons dans {formatSecondsToFullTime(openIn() ?? 0)}
             </p>
           </Show>
